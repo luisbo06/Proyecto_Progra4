@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CabeceraLiquidacion\cls_CabeceraLiquidacion.cs" />
+    <Compile Include="CabeceraOrdenViatico\cls_CabeceraOrdenViatico.cs" />
     <Compile Include="Canton\cls_Canton.cs" />
+    <Compile Include="DetalleSolicitudViaticos\cls_DetalleSolicitudViaticos.cs" />
+    <Compile Include="DetalleViatico\cls_DetalleViatico.cs" />
     <Compile Include="Estado\cls_Estado.cs" />
     <Compile Include="ModTarifarioViatico\cls_ModTarifarioViatico.cs" />
     <Compile Include="Persona\cls_Persona.cs" />
