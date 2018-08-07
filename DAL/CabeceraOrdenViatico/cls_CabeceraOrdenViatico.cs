@@ -8,61 +8,80 @@ namespace DAL.CabeceraOrdenViatico
 {
     public class cls_CabeceraOrdenViatico
     {
-        private int _IdOrden;
-        private int _IdSolicitud;
-        private int _IdEstado;
-        private DateTime _FechaOrden;
+        #region Propiedades
+            private int _IdOrden;
+            private int _IdSolicitud;
+            private int _IdEstado;
+            private DateTime _FechaOrden;
 
-        public int IdOrden
-        {
-            get
+            public int IdOrden
             {
-                return _IdOrden;
+                get
+                {
+                    return _IdOrden;
+                }
+
+                set
+                {
+                    _IdOrden = value;
+                }
             }
 
-            set
+            public int IdSolicitud
             {
-                _IdOrden = value;
-            }
-        }
+                get
+                {
+                    return _IdSolicitud;
+                }
 
-        public int IdSolicitud
-        {
-            get
-            {
-                return _IdSolicitud;
-            }
-
-            set
-            {
-                _IdSolicitud = value;
-            }
-        }
-
-        public int IdEstado
-        {
-            get
-            {
-                return _IdEstado;
+                set
+                {
+                    _IdSolicitud = value;
+                }
             }
 
-            set
+            public int IdEstado
             {
-                _IdEstado = value;
-            }
-        }
+                get
+                {
+                    return _IdEstado;
+                }
 
-        public DateTime FechaOrden
-        {
-            get
-            {
-                return _FechaOrden;
+                set
+                {
+                    _IdEstado = value;
+                }
             }
 
-            set
+            public DateTime FechaOrden
             {
-                _FechaOrden = value;
+                get
+                {
+                    return _FechaOrden;
+                }
+
+                set
+                {
+                    _FechaOrden = value;
+                }
             }
-        }
+        #endregion
+
+        #region Constructor
+            public cls_CabeceraOrdenViatico() { }
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_CabeceraOrdenViatico obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

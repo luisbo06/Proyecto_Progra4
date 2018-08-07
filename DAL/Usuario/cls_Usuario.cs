@@ -8,61 +8,84 @@ namespace DAL.Usuario
 {
     public class cls_Usuario
     {
-        private string _NomUsuario;
-        private int _IdRol;
-        private int _IdEstado;
-        private string _ClaveAcceso;
+        #region Propiedades
 
-        public string NomUsuario
-        {
-            get
+            private string _NomUsuario;
+            private int _IdRol;
+            private int _IdEstado;
+            private string _ClaveAcceso;
+
+            public string NomUsuario
             {
-                return _NomUsuario;
+                get
+                {
+                    return _NomUsuario;
+                }
+
+                set
+                {
+                    _NomUsuario = value;
+                }
             }
 
-            set
+            public int IdRol
             {
-                _NomUsuario = value;
-            }
-        }
+                get
+                {
+                    return _IdRol;
+                }
 
-        public int IdRol
-        {
-            get
-            {
-                return _IdRol;
-            }
-
-            set
-            {
-                _IdRol = value;
-            }
-        }
-
-        public int IdEstado
-        {
-            get
-            {
-                return _IdEstado;
+                set
+                {
+                    _IdRol = value;
+                }
             }
 
-            set
+            public int IdEstado
             {
-                _IdEstado = value;
-            }
-        }
+                get
+                {
+                    return _IdEstado;
+                }
 
-        public string ClaveAcceso
-        {
-            get
-            {
-                return _ClaveAcceso;
+                set
+                {
+                    _IdEstado = value;
+                }
             }
 
-            set
+            public string ClaveAcceso
             {
-                _ClaveAcceso = value;
+                get
+                {
+                    return _ClaveAcceso;
+                }
+
+                set
+                {
+                    _ClaveAcceso = value;
+                }
             }
-        }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_Usuario() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_Usuario obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

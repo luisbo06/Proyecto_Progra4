@@ -8,89 +8,112 @@ namespace DAL.Persona
 {
     public class cls_Persona
     {
-        private int _IdPersona;
-        private string _NomUsuario;
-        private string _Nombre;
-        private string _PrimerApellido;
-        private string _SegundoApellido;
-        private string _Email;
+        #region Propiedades
 
-        public int IdPersona
-        {
-            get
+            private int _IdPersona;
+            private string _NomUsuario;
+            private string _Nombre;
+            private string _PrimerApellido;
+            private string _SegundoApellido;
+            private string _Email;
+
+            public int IdPersona
             {
-                return _IdPersona;
+                get
+                {
+                    return _IdPersona;
+                }
+
+                set
+                {
+                    _IdPersona = value;
+                }
             }
 
-            set
+            public string NomUsuario
             {
-                _IdPersona = value;
-            }
-        }
+                get
+                {
+                    return _NomUsuario;
+                }
 
-        public string NomUsuario
-        {
-            get
-            {
-                return _NomUsuario;
-            }
-
-            set
-            {
-                _NomUsuario = value;
-            }
-        }
-
-        public string Nombre
-        {
-            get
-            {
-                return _Nombre;
+                set
+                {
+                    _NomUsuario = value;
+                }
             }
 
-            set
+            public string Nombre
             {
-                _Nombre = value;
-            }
-        }
+                get
+                {
+                    return _Nombre;
+                }
 
-        public string PrimerApellido
-        {
-            get
-            {
-                return _PrimerApellido;
-            }
-
-            set
-            {
-                _PrimerApellido = value;
-            }
-        }
-
-        public string SegundoApellido
-        {
-            get
-            {
-                return _SegundoApellido;
+                set
+                {
+                    _Nombre = value;
+                }
             }
 
-            set
+            public string PrimerApellido
             {
-                _SegundoApellido = value;
-            }
-        }
+                get
+                {
+                    return _PrimerApellido;
+                }
 
-        public string Email
-        {
-            get
-            {
-                return _Email;
+                set
+                {
+                    _PrimerApellido = value;
+                }
             }
 
-            set
+            public string SegundoApellido
             {
-                _Email = value;
+                get
+                {
+                    return _SegundoApellido;
+                }
+
+                set
+                {
+                    _SegundoApellido = value;
+                }
             }
-        }
+
+            public string Email
+            {
+                get
+                {
+                    return _Email;
+                }
+
+                set
+                {
+                    _Email = value;
+                }
+            }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_Persona() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_Persona obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

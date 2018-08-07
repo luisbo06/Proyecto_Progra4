@@ -8,145 +8,168 @@ namespace DAL.DetalleViatico
 {
     public class cls_DetalleViatico
     {
-        private int _IdDetalleViatico;
-        private int _IdDetalleSolicitud;
-        private int _IdCabOrden;
-        private float _MontDesayuno;
-        private float _MontAlmuerzo;
-        private float _MontCena;
-        private float _CanDesayuno;
-        private float _CanAlmuerzo;
-        private float _CanCena;
-        private float _CanPasaje;
+        #region Propiedades
 
-        public int IdDetalleViatico
-        {
-            get
+            private int _IdDetalleViatico;
+            private int _IdDetalleSolicitud;
+            private int _IdCabOrden;
+            private float _MontDesayuno;
+            private float _MontAlmuerzo;
+            private float _MontCena;
+            private float _CanDesayuno;
+            private float _CanAlmuerzo;
+            private float _CanCena;
+            private float _CanPasaje;
+
+            public int IdDetalleViatico
             {
-                return _IdDetalleViatico;
+                get
+                {
+                    return _IdDetalleViatico;
+                }
+
+                set
+                {
+                    _IdDetalleViatico = value;
+                }
             }
 
-            set
+            public int IdDetalleSolicitud
             {
-                _IdDetalleViatico = value;
-            }
-        }
+                get
+                {
+                    return _IdDetalleSolicitud;
+                }
 
-        public int IdDetalleSolicitud
-        {
-            get
-            {
-                return _IdDetalleSolicitud;
-            }
-
-            set
-            {
-                _IdDetalleSolicitud = value;
-            }
-        }
-
-        public int IdCabOrden
-        {
-            get
-            {
-                return _IdCabOrden;
+                set
+                {
+                    _IdDetalleSolicitud = value;
+                }
             }
 
-            set
+            public int IdCabOrden
             {
-                _IdCabOrden = value;
-            }
-        }
+                get
+                {
+                    return _IdCabOrden;
+                }
 
-        public float MontDesayuno
-        {
-            get
-            {
-                return _MontDesayuno;
-            }
-
-            set
-            {
-                _MontDesayuno = value;
-            }
-        }
-
-        public float MontAlmuerzo
-        {
-            get
-            {
-                return _MontAlmuerzo;
+                set
+                {
+                    _IdCabOrden = value;
+                }
             }
 
-            set
+            public float MontDesayuno
             {
-                _MontAlmuerzo = value;
-            }
-        }
+                get
+                {
+                    return _MontDesayuno;
+                }
 
-        public float MontCena
-        {
-            get
-            {
-                return _MontCena;
-            }
-
-            set
-            {
-                _MontCena = value;
-            }
-        }
-
-        public float CanDesayuno
-        {
-            get
-            {
-                return _CanDesayuno;
+                set
+                {
+                    _MontDesayuno = value;
+                }
             }
 
-            set
+            public float MontAlmuerzo
             {
-                _CanDesayuno = value;
-            }
-        }
+                get
+                {
+                    return _MontAlmuerzo;
+                }
 
-        public float CanAlmuerzo
-        {
-            get
-            {
-                return _CanAlmuerzo;
-            }
-
-            set
-            {
-                _CanAlmuerzo = value;
-            }
-        }
-
-        public float CanCena
-        {
-            get
-            {
-                return _CanCena;
+                set
+                {
+                    _MontAlmuerzo = value;
+                }
             }
 
-            set
+            public float MontCena
             {
-                _CanCena = value;
-            }
-        }
+                get
+                {
+                    return _MontCena;
+                }
 
-        public float CanPasaje
-        {
-            get
-            {
-                return _CanPasaje;
+                set
+                {
+                    _MontCena = value;
+                }
             }
 
-            set
+            public float CanDesayuno
             {
-                _CanPasaje = value;
+                get
+                {
+                    return _CanDesayuno;
+                }
+
+                set
+                {
+                    _CanDesayuno = value;
+                }
             }
-        }
+
+            public float CanAlmuerzo
+            {
+                get
+                {
+                    return _CanAlmuerzo;
+                }
+
+                set
+                {
+                    _CanAlmuerzo = value;
+                }
+            }
+
+            public float CanCena
+            {
+                get
+                {
+                    return _CanCena;
+                }
+
+                set
+                {
+                    _CanCena = value;
+                }
+            }
+
+            public float CanPasaje
+            {
+                get
+                {
+                    return _CanPasaje;
+                }
+
+                set
+                {
+                    _CanPasaje = value;
+                }
+            }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_DetalleViatico() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_DetalleViatico obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

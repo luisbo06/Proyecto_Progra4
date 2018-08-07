@@ -8,145 +8,168 @@ namespace DAL.ModTarifarioViatico
 {
     public class cls_ModTarifarioViatico
     {
-        private int _IdModTarifa;
-        private int _CodProvincia;
-        private int _CodCanton;
-        private string _CodRuta;
-        private int _IdEstado;
-        private int _IdTipoTarifa;
-        private string _Localidad;
-        private float _MonTarifa;
-        private DateTime _FechaTarifa;
-        private int _AnioTarifa;
+        #region Propiedades
 
-        public int IdModTarifa
-        {
-            get
+            private int _IdModTarifa;
+            private int _CodProvincia;
+            private int _CodCanton;
+            private string _CodRuta;
+            private int _IdEstado;
+            private int _IdTipoTarifa;
+            private string _Localidad;
+            private float _MonTarifa;
+            private DateTime _FechaTarifa;
+            private int _AnioTarifa;
+
+            public int IdModTarifa
             {
-                return _IdModTarifa;
+                get
+                {
+                    return _IdModTarifa;
+                }
+
+                set
+                {
+                    _IdModTarifa = value;
+                }
             }
 
-            set
+            public int CodProvincia
             {
-                _IdModTarifa = value;
-            }
-        }
+                get
+                {
+                    return _CodProvincia;
+                }
 
-        public int CodProvincia
-        {
-            get
-            {
-                return _CodProvincia;
-            }
-
-            set
-            {
-                _CodProvincia = value;
-            }
-        }
-
-        public int CodCanton
-        {
-            get
-            {
-                return _CodCanton;
+                set
+                {
+                    _CodProvincia = value;
+                }
             }
 
-            set
+            public int CodCanton
             {
-                _CodCanton = value;
-            }
-        }
+                get
+                {
+                    return _CodCanton;
+                }
 
-        public string CodRuta
-        {
-            get
-            {
-                return _CodRuta;
-            }
-
-            set
-            {
-                _CodRuta = value;
-            }
-        }
-
-        public int IdEstado
-        {
-            get
-            {
-                return _IdEstado;
+                set
+                {
+                    _CodCanton = value;
+                }
             }
 
-            set
+            public string CodRuta
             {
-                _IdEstado = value;
-            }
-        }
+                get
+                {
+                    return _CodRuta;
+                }
 
-        public int IdTipoTarifa
-        {
-            get
-            {
-                return _IdTipoTarifa;
-            }
-
-            set
-            {
-                _IdTipoTarifa = value;
-            }
-        }
-
-        public string Localidad
-        {
-            get
-            {
-                return _Localidad;
+                set
+                {
+                    _CodRuta = value;
+                }
             }
 
-            set
+            public int IdEstado
             {
-                _Localidad = value;
-            }
-        }
+                get
+                {
+                    return _IdEstado;
+                }
 
-        public float MonTarifa
-        {
-            get
-            {
-                return _MonTarifa;
-            }
-
-            set
-            {
-                _MonTarifa = value;
-            }
-        }
-
-        public DateTime FechaTarifa
-        {
-            get
-            {
-                return _FechaTarifa;
+                set
+                {
+                    _IdEstado = value;
+                }
             }
 
-            set
+            public int IdTipoTarifa
             {
-                _FechaTarifa = value;
-            }
-        }
+                get
+                {
+                    return _IdTipoTarifa;
+                }
 
-        public int AnioTarifa
-        {
-            get
-            {
-                return _AnioTarifa;
+                set
+                {
+                    _IdTipoTarifa = value;
+                }
             }
 
-            set
+            public string Localidad
             {
-                _AnioTarifa = value;
+                get
+                {
+                    return _Localidad;
+                }
+
+                set
+                {
+                    _Localidad = value;
+                }
             }
-        }
+
+            public float MonTarifa
+            {
+                get
+                {
+                    return _MonTarifa;
+                }
+
+                set
+                {
+                    _MonTarifa = value;
+                }
+            }
+
+            public DateTime FechaTarifa
+            {
+                get
+                {
+                    return _FechaTarifa;
+                }
+
+                set
+                {
+                    _FechaTarifa = value;
+                }
+            }
+
+            public int AnioTarifa
+            {
+                get
+                {
+                    return _AnioTarifa;
+                }
+
+                set
+                {
+                    _AnioTarifa = value;
+                }
+            }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_ModTarifarioViatico() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_ModTarifarioViatico obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

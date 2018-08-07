@@ -8,117 +8,140 @@ namespace DAL.DetalleSolicitudViaticos
 {
     public class cls_DetalleSolicitudViaticos
     {
-        private int _IdDetalleSolicitud;
-        private int _IdSolicitud;
-        private int _IdPersona;
-        private int _IdModTarifa;
-        private string _CodRuta;
-        private float _CantViatico;
-        private float _CantPasaje;
-        private DateTime _FechaViatico;
+        #region Propiedades
 
-        public int IdDetalleSolicitud
-        {
-            get
+            private int _IdDetalleSolicitud;
+            private int _IdSolicitud;
+            private int _IdPersona;
+            private int _IdModTarifa;
+            private string _CodRuta;
+            private float _CantViatico;
+            private float _CantPasaje;
+            private DateTime _FechaViatico;
+
+            public int IdDetalleSolicitud
             {
-                return _IdDetalleSolicitud;
+                get
+                {
+                    return _IdDetalleSolicitud;
+                }
+
+                set
+                {
+                    _IdDetalleSolicitud = value;
+                }
             }
 
-            set
+            public int IdSolicitud
             {
-                _IdDetalleSolicitud = value;
-            }
-        }
+                get
+                {
+                    return _IdSolicitud;
+                }
 
-        public int IdSolicitud
-        {
-            get
-            {
-                return _IdSolicitud;
-            }
-
-            set
-            {
-                _IdSolicitud = value;
-            }
-        }
-
-        public int IdPersona
-        {
-            get
-            {
-                return _IdPersona;
+                set
+                {
+                    _IdSolicitud = value;
+                }
             }
 
-            set
+            public int IdPersona
             {
-                _IdPersona = value;
-            }
-        }
+                get
+                {
+                    return _IdPersona;
+                }
 
-        public int IdModTarifa
-        {
-            get
-            {
-                return _IdModTarifa;
-            }
-
-            set
-            {
-                _IdModTarifa = value;
-            }
-        }
-
-        public string CodRuta
-        {
-            get
-            {
-                return _CodRuta;
+                set
+                {
+                    _IdPersona = value;
+                }
             }
 
-            set
+            public int IdModTarifa
             {
-                _CodRuta = value;
-            }
-        }
+                get
+                {
+                    return _IdModTarifa;
+                }
 
-        public float CantViatico
-        {
-            get
-            {
-                return _CantViatico;
-            }
-
-            set
-            {
-                _CantViatico = value;
-            }
-        }
-
-        public float CantPasaje
-        {
-            get
-            {
-                return _CantPasaje;
+                set
+                {
+                    _IdModTarifa = value;
+                }
             }
 
-            set
+            public string CodRuta
             {
-                _CantPasaje = value;
-            }
-        }
+                get
+                {
+                    return _CodRuta;
+                }
 
-        public DateTime FechaViatico
-        {
-            get
-            {
-                return _FechaViatico;
+                set
+                {
+                    _CodRuta = value;
+                }
             }
 
-            set
+            public float CantViatico
             {
-                _FechaViatico = value;
+                get
+                {
+                    return _CantViatico;
+                }
+
+                set
+                {
+                    _CantViatico = value;
+                }
             }
-        }
+
+            public float CantPasaje
+            {
+                get
+                {
+                    return _CantPasaje;
+                }
+
+                set
+                {
+                    _CantPasaje = value;
+                }
+            }
+
+            public DateTime FechaViatico
+            {
+                get
+                {
+                    return _FechaViatico;
+                }
+
+                set
+                {
+                    _FechaViatico = value;
+                }
+            }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_DetalleSolicitudViaticos() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_DetalleSolicitudViaticos obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

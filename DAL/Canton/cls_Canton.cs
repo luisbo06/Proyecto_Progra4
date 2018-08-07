@@ -8,47 +8,70 @@ namespace DAL.Canton
 {
     public class cls_Canton
     {
-        private int _CodCanton;
-        private int _CodProvincia;
-        private string _DescCanton;
+        #region Propiedades
 
-        public int CodCanton
-        {
-            get
+            private int _CodCanton;
+            private int _CodProvincia;
+            private string _DescCanton;
+
+            public int CodCanton
             {
-                return _CodCanton;
+                get
+                {
+                    return _CodCanton;
+                }
+
+                set
+                {
+                    _CodCanton = value;
+                }
             }
 
-            set
+            public int CodProvincia
             {
-                _CodCanton = value;
-            }
-        }
+                get
+                {
+                    return _CodProvincia;
+                }
 
-        public int CodProvincia
-        {
-            get
-            {
-                return _CodProvincia;
-            }
-
-            set
-            {
-                _CodProvincia = value;
-            }
-        }
-
-        public string DescCanton
-        {
-            get
-            {
-                return _DescCanton;
+                set
+                {
+                    _CodProvincia = value;
+                }
             }
 
-            set
+            public string DescCanton
             {
-                _DescCanton = value;
+                get
+                {
+                    return _DescCanton;
+                }
+
+                set
+                {
+                    _DescCanton = value;
+                }
             }
-        }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_Canton() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_Canton obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

@@ -8,6 +8,8 @@ namespace DAL.Estado
 {
     public class cls_Estado
     {
+        #region Propiedades
+
         private int _IdEstado;
         private string _DescEstado;
 
@@ -36,5 +38,26 @@ namespace DAL.Estado
                 _DescEstado = value;
             }
         }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_Estado() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_Estado obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

@@ -8,6 +8,8 @@ namespace DAL.TarifaAutobus
 {
     public class cls_TarifaAutobus
     {
+        #region Propiedades
+
         private string _CodRuta;
         private int _CodProvincia;
         private int _IdEstado;
@@ -92,5 +94,26 @@ namespace DAL.TarifaAutobus
                 _FechaVigencia = value;
             }
         }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_TarifaAutobus() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_TarifaAutobus obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

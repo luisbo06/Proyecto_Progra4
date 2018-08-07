@@ -45,12 +45,22 @@
     <Compile Include="CabeceraLiquidacion\cls_CabeceraLiquidacion.cs" />
     <Compile Include="CabeceraOrdenViatico\cls_CabeceraOrdenViatico.cs" />
     <Compile Include="Canton\cls_Canton.cs" />
+    <Compile Include="DB_Viaticos.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_Viaticos.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DetalleSolicitudViaticos\cls_DetalleSolicitudViaticos.cs" />
     <Compile Include="DetalleViatico\cls_DetalleViatico.cs" />
     <Compile Include="Estado\cls_Estado.cs" />
     <Compile Include="ModTarifarioViatico\cls_ModTarifarioViatico.cs" />
     <Compile Include="Persona\cls_Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Provincia\cls_Provincia.cs" />
     <Compile Include="RolUsuario\cls_RolUsuario.cs" />
     <Compile Include="SolicitudViaticos\cls_SolicitudViaticos.cs" />
@@ -58,7 +68,26 @@
     <Compile Include="TipoTarifa\cls_TipoTarifa.cs" />
     <Compile Include="Usuario\cls_Usuario.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DB_Viaticos.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DB_Viaticos.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DB_Viaticos.dbml.layout">
+      <DependentUpon>DB_Viaticos.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

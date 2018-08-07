@@ -8,33 +8,56 @@ namespace DAL.Provincia
 {
     public class cls_Provincia
     {
-        private int _CodProvincia;
-        private string _DescProvincia;
+        #region Propiedades
 
-        public int CodProvincia
-        {
-            get
+            private int _CodProvincia;
+            private string _DescProvincia;
+
+            public int CodProvincia
             {
-                return _CodProvincia;
+                get
+                {
+                    return _CodProvincia;
+                }
+
+                set
+                {
+                    _CodProvincia = value;
+                }
             }
 
-            set
+            public string DescProvincia
             {
-                _CodProvincia = value;
-            }
-        }
+                get
+                {
+                    return _DescProvincia;
+                }
 
-        public string DescProvincia
-        {
-            get
-            {
-                return _DescProvincia;
+                set
+                {
+                    _DescProvincia = value;
+                }
             }
 
-            set
+        #endregion
+
+        #region Constructor
+
+            public cls_Provincia() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_Provincia obj)
             {
-                _DescProvincia = value;
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
             }
-        }
+
+        #endregion
     }
 }

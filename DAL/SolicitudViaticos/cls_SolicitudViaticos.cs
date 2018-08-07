@@ -8,117 +8,140 @@ namespace DAL.SolicitudViaticos
 {
     public class cls_SolicitudViaticos
     {
-        private int _IdSolicitud;
-        private string _NomUsuario;
-        private int _IdEstado;
-        private string _Destino;
-        private string _Justificacion;
-        private DateTime _FechaCreacion;
-        private DateTime _FechaHoraSalida;
-        private DateTime _FechaHoraRegreso;
+        #region Propiedades
 
-        public int IdSolicitud
-        {
-            get
+            private int _IdSolicitud;
+            private string _NomUsuario;
+            private int _IdEstado;
+            private string _Destino;
+            private string _Justificacion;
+            private DateTime _FechaCreacion;
+            private DateTime _FechaHoraSalida;
+            private DateTime _FechaHoraRegreso;
+
+            public int IdSolicitud
             {
-                return _IdSolicitud;
+                get
+                {
+                    return _IdSolicitud;
+                }
+
+                set
+                {
+                    _IdSolicitud = value;
+                }
             }
 
-            set
+            public string NomUsuario
             {
-                _IdSolicitud = value;
-            }
-        }
+                get
+                {
+                    return _NomUsuario;
+                }
 
-        public string NomUsuario
-        {
-            get
-            {
-                return _NomUsuario;
-            }
-
-            set
-            {
-                _NomUsuario = value;
-            }
-        }
-
-        public int IdEstado
-        {
-            get
-            {
-                return _IdEstado;
+                set
+                {
+                    _NomUsuario = value;
+                }
             }
 
-            set
+            public int IdEstado
             {
-                _IdEstado = value;
-            }
-        }
+                get
+                {
+                    return _IdEstado;
+                }
 
-        public string Destino
-        {
-            get
-            {
-                return _Destino;
-            }
-
-            set
-            {
-                _Destino = value;
-            }
-        }
-
-        public string Justificacion
-        {
-            get
-            {
-                return _Justificacion;
+                set
+                {
+                    _IdEstado = value;
+                }
             }
 
-            set
+            public string Destino
             {
-                _Justificacion = value;
-            }
-        }
+                get
+                {
+                    return _Destino;
+                }
 
-        public DateTime FechaCreacion
-        {
-            get
-            {
-                return _FechaCreacion;
-            }
-
-            set
-            {
-                _FechaCreacion = value;
-            }
-        }
-
-        public DateTime FechaHoraSalida
-        {
-            get
-            {
-                return _FechaHoraSalida;
+                set
+                {
+                    _Destino = value;
+                }
             }
 
-            set
+            public string Justificacion
             {
-                _FechaHoraSalida = value;
-            }
-        }
+                get
+                {
+                    return _Justificacion;
+                }
 
-        public DateTime FechaHoraRegreso
-        {
-            get
-            {
-                return _FechaHoraRegreso;
+                set
+                {
+                    _Justificacion = value;
+                }
             }
 
-            set
+            public DateTime FechaCreacion
             {
-                _FechaHoraRegreso = value;
+                get
+                {
+                    return _FechaCreacion;
+                }
+
+                set
+                {
+                    _FechaCreacion = value;
+                }
             }
-        }
+
+            public DateTime FechaHoraSalida
+            {
+                get
+                {
+                    return _FechaHoraSalida;
+                }
+
+                set
+                {
+                    _FechaHoraSalida = value;
+                }
+            }
+
+            public DateTime FechaHoraRegreso
+            {
+                get
+                {
+                    return _FechaHoraRegreso;
+                }
+
+                set
+                {
+                    _FechaHoraRegreso = value;
+                }
+            }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_SolicitudViaticos() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_SolicitudViaticos obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }

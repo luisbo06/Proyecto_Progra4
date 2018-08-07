@@ -8,47 +8,70 @@ namespace DAL.TipoTarifa
 {
     public class cls_TipoTarifa
     {
-        private int _IdTipoTarifa;
-        private int _IdEspacio;
-        private string _DescTipoTarifa;
+        #region Propiedades
 
-        public int IdTipoTarifa
-        {
-            get
+            private int _IdTipoTarifa;
+            private int _IdEspacio;
+            private string _DescTipoTarifa;
+
+            public int IdTipoTarifa
             {
-                return _IdTipoTarifa;
+                get
+                {
+                    return _IdTipoTarifa;
+                }
+
+                set
+                {
+                    _IdTipoTarifa = value;
+                }
             }
 
-            set
+            public int IdEspacio
             {
-                _IdTipoTarifa = value;
-            }
-        }
+                get
+                {
+                    return _IdEspacio;
+                }
 
-        public int IdEspacio
-        {
-            get
-            {
-                return _IdEspacio;
-            }
-
-            set
-            {
-                _IdEspacio = value;
-            }
-        }
-
-        public string DescTipoTarifa
-        {
-            get
-            {
-                return _DescTipoTarifa;
+                set
+                {
+                    _IdEspacio = value;
+                }
             }
 
-            set
+            public string DescTipoTarifa
             {
-                _DescTipoTarifa = value;
+                get
+                {
+                    return _DescTipoTarifa;
+                }
+
+                set
+                {
+                    _DescTipoTarifa = value;
+                }
             }
-        }
+
+        #endregion
+
+        #region Constructor
+
+            public cls_TipoTarifa() { }
+
+        #endregion
+
+        #region Base de datos
+
+            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+
+            public void guardar(cls_TipoTarifa obj)
+            {
+                /*
+                 * DB_Contexto.<SP>(obj.)
+                 */
+            }
+
+        #endregion
     }
 }
