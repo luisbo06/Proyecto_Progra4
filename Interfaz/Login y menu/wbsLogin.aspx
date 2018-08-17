@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="csslogin VIATICOS.css">
 </head>
 <body id = "cuerpo">
+    <form runat="server">
 	<header id = "cabeza">
 		<img id = "logo" src="../Imagenes/logo2.png" width="380px" height="148px">
 		<h1>Sistema Integral de Víaticos Corporativo (SIVICO)</h1>
@@ -18,11 +19,15 @@
 		<article id = "inicio">
 			<blockquote id = "usuario">
 				<p class = "lbl" id = "lblUser">Usuario:</p>
-				<input class="txt" id = "textoUser" type="text" name=" txtUsuario">	
+				
+				<asp:TextBox ID="txtUsuario" runat="server" CssClass="txt" ></asp:TextBox>	
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtUsuario" Display="Dynamic" ErrorMessage="Usuario debe llenarce">*</asp:RequiredFieldValidator> 	
 			</blockquote>
 			<blockquote id = "clave">
 				<p class = "lbl" id = "lblClave">Contraseña:</p>
-				<input class="txt" id = "textoPass" type="text" name=" txtClave">	
+				
+				<asp:TextBox ID="txtClave" runat="server" CssClass="txt" ></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtClave" Display="Dynamic" ErrorMessage="Contraseña debe llenarce">*</asp:RequiredFieldValidator>	
 			</blockquote>
 
 		</article>
@@ -35,9 +40,10 @@
 		</article>
 	</section>
 	<section id = "opciones">
-		<button id = "btnAutenticar">Inicio Sesión</button>
-		<button id = "btnRecuperar">Olvide Contraseña</button>
-	</section>
 
+        <asp:Button ID="btnAutenticar" runat="server" Text="Inicio sesion" OnClick="btnAutenticar_Click1" />
+        <asp:Button ID="btnRecuperar" runat="server" Text="Olvide contraseña" OnClick="btnRecuperar_Click" />
+	</section>
+</form>
 </body>
 </html>

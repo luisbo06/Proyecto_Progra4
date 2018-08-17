@@ -10,5 +10,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=viaticosuam.database.windows.net;Initial Catalog=DB_Viaticos;Persist Security Info=True;User ID=progra4;Password=Viaticos2018$</Value>
     </Setting>
+    <Setting Name="DB_BiaticosConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-2CJA1P6\SQLEXPRESS;Initial Catalog=DB_Biaticos;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=DESKTOP-2CJA1P6\SQLEXPRESS;Initial Catalog=DB_Biaticos;Integrated Security=True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

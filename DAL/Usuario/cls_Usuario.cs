@@ -10,82 +10,124 @@ namespace DAL.Usuario
     {
         #region Propiedades
 
-            private string _NomUsuario;
-            private int _IdRol;
-            private int _IdEstado;
-            private string _ClaveAcceso;
+        private string _NomUsuario;
+        private int _IdRol;
+        private int _IdEstado;
+        private string _ClaveAcceso;
 
-            public string NomUsuario
+        public string NomUsuario
+        {
+            get
             {
-                get
-                {
-                    return _NomUsuario;
-                }
-
-                set
-                {
-                    _NomUsuario = value;
-                }
+                return _NomUsuario;
             }
 
-            public int IdRol
+            set
             {
-                get
-                {
-                    return _IdRol;
-                }
+                _NomUsuario = value;
+            }
+        }
 
-                set
-                {
-                    _IdRol = value;
-                }
+        public int IdRol
+        {
+            get
+            {
+                return _IdRol;
             }
 
-            public int IdEstado
+            set
             {
-                get
-                {
-                    return _IdEstado;
-                }
+                _IdRol = value;
+            }
+        }
 
-                set
-                {
-                    _IdEstado = value;
-                }
+        public int IdEstado
+        {
+            get
+            {
+                return _IdEstado;
             }
 
-            public string ClaveAcceso
+            set
             {
-                get
-                {
-                    return _ClaveAcceso;
-                }
-
-                set
-                {
-                    _ClaveAcceso = value;
-                }
+                _IdEstado = value;
             }
+        }
+
+        public string ClaveAcceso
+        {
+            get
+            {
+                return _ClaveAcceso;
+            }
+
+            set
+            {
+                _ClaveAcceso = value;
+            }
+        }
 
         #endregion
 
         #region Constructor
 
-            public cls_Usuario() { }
+        public cls_Usuario() { }
 
         #endregion
 
         #region Base de datos
 
-            DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
+        DB_ViaticosDataContext DB_Contexto = new DB_ViaticosDataContext();
 
-            public void guardar(cls_Usuario obj)
+        public void guardar(cls_Usuario obj)
+        {
+            DB_Contexto.sp_RegistrarUsuario(obj._NomUsuario,
+                                            obj._IdRol,
+                                            obj._ClaveAcceso);
+        }
+        public void Actualizar(cls_Usuario obj)
+        {
+            DB_Contexto.sp_ActualizarUsuario(obj._NomUsuario,
+                                             obj._IdRol,
+                                             obj._IdEstado,
+                                             obj._ClaveAcceso);
+        }
+        public cls_Usuario Obtener(cls_Usuario obj)
+        {
+            var consulta = DB_Contexto.sp_ObtenerUsuario(obj._NomUsuario).FirstOrDefault();
+
+            if (consulta != null)
             {
-                /*
-                 * DB_Contexto.<SP>(obj.)
-                 */
+                obj._NomUsuario = consulta.NomUsuario;
+                obj._ClaveAcceso = consulta.ClaveAcceso;
+                obj._IdRol = consulta.IdRol;
+                obj._IdEstado = consulta.IdEstado;
+            }
+            else
+            {
+                obj = null;
+            }
+           
+            return obj;
+
+        }
+        public String ValidarCredenciales(cls_Usuario obj)
+        {
+            var consulta = DB_Contexto.sp_ValidarCredenciales(obj._NomUsuario, obj._ClaveAcceso).FirstOrDefault();
+            if (consulta != null)
+            {
+                obj._NomUsuario = consulta.NomUsuario;
+
+            }
+            else
+            {
+                obj._NomUsuario = "Nombre o contraseña incorrectos";
             }
 
+            return obj._NomUsuario;
+        }
         #endregion
+
+
     }
 }

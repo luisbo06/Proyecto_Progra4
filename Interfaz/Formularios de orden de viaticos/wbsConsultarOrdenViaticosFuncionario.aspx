@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wbsOrdenDeViaticos.aspx.cs" Inherits="Control_de_viaticos.Formularios_de_orden_de_viaticos.wbsOrdenDeViaticos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wbsConsultarOrdenViaticosFuncionario.aspx.cs" Inherits="Control_de_viaticos.Formularios_de_orden_de_viaticos.wbsConsultarOrdenViaticosFuncionario" %>
+
+<!DOCTYPE html>
 
 <!DOCTYPE html>
 
@@ -6,17 +8,31 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            margin: 0px auto;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            background-color: cornflowerblue;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+    <link href="../Estilos/estilosboton.css" rel="stylesheet" />
+    <link href="../Estilos/estilostxt.css" rel="stylesheet" />
     <form id="form1" runat="server">
-        <link href="../Estilos/estilostxt.css" rel="stylesheet" />
-        <link href="../Estilos/estilosboton.css" rel="stylesheet" />
-     <div>
+    <div>
         <table style="width: 100%;">
             <tr>
                 <td colspan="3"><asp:Button ID="btnVolver" runat="server" Text="Volver" Height="34px" Width="77px" OnClick="btnVolver_Click" CssClass="boton" />
-                    <h1 align="center"> Orden de viaticos</h1>
+                    <h1 align="center"> Consultar orden de viaticos</h1>
                </td>
+           </tr>
+            <tr>
+               
            </tr>
             <tr>
                 <td     
@@ -154,14 +170,6 @@
                      <p  align="center">
                          <asp:TextBox ID="txtMontoTotal" runat="server" Width="188px" CssClass="txtFormulario"></asp:TextBox>
                     </p>
-                </td>
-           </tr>
-           
-            <tr>
-                <td colspan="3">
-                     <p align="center">
-                           <asp:Button ID="btnGenerarOrden" runat="server" Text="Generar orden" Height="35px" OnClick="btnGenerarOrden_Click" CssClass="boton2" />
-                    </p>    
                 </td>
            </tr>
            

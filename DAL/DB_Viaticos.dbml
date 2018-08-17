@@ -1,183 +1,65 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_Viaticos" Class="DB_ViaticosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=viaticosuam.database.windows.net;Initial Catalog=DB_Viaticos;Persist Security Info=True;User ID=progra4" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="DB_ViaticosConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.CabeceraLiquidacion" Member="CabeceraLiquidacions">
-    <Type Name="CabeceraLiquidacion">
-      <Column Name="IdLiquidacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdOrden" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FechaLiquidacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MonCena" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MonDes" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MonHosp" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MonPasj" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MonAlm" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="CabeceraOrdenViatico_CabeceraLiquidacion" Member="CabeceraOrdenViatico" ThisKey="IdOrden" OtherKey="IdOrden" Type="CabeceraOrdenViatico" IsForeignKey="true" />
-      <Association Name="Estado_CabeceraLiquidacion" Member="Estado" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estado" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CabeceraOrdenViatico" Member="CabeceraOrdenViaticos">
-    <Type Name="CabeceraOrdenViatico">
-      <Column Name="IdOrden" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdSolicitud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FechaOrden" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="CabeceraOrdenViatico_CabeceraLiquidacion" Member="CabeceraLiquidacions" ThisKey="IdOrden" OtherKey="IdOrden" Type="CabeceraLiquidacion" />
-      <Association Name="Estado_CabeceraOrdenViatico" Member="Estado" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estado" IsForeignKey="true" />
-      <Association Name="SolicitudViatico_CabeceraOrdenViatico" Member="SolicitudViatico" ThisKey="IdSolicitud" OtherKey="IdSolicitud" Type="SolicitudViatico" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Canton" Member="Cantons">
-    <Type Name="Canton">
-      <Column Name="CodCanton" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodProvincia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DescCanton" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Association Name="Canton_ModTarifarioViatico" Member="ModTarifarioViaticos" ThisKey="CodCanton" OtherKey="CodCanton" Type="ModTarifarioViatico" />
-      <Association Name="Provincia_Canton" Member="Provincia" ThisKey="CodProvincia" OtherKey="CodProvincia" Type="Provincia" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DetalleSolicitudViaticos" Member="DetalleSolicitudViaticos">
-    <Type Name="DetalleSolicitudViatico">
-      <Column Name="IdDetalleSolicitud" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdSolicitud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdModTarifa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CodRuta" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="CantViatico" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CantPasaje" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FechaViatico" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="DetalleSolicitudViatico_DetalleViatico" Member="DetalleViaticos" ThisKey="IdDetalleSolicitud" OtherKey="IdDetalleSolicitud" Type="DetalleViatico" />
-      <Association Name="ModTarifarioViatico_DetalleSolicitudViatico" Member="ModTarifarioViatico" ThisKey="IdModTarifa" OtherKey="IdModTarifa" Type="ModTarifarioViatico" IsForeignKey="true" />
-      <Association Name="Persona_DetalleSolicitudViatico" Member="Persona" ThisKey="IdPersona" OtherKey="IdPersona" Type="Persona" IsForeignKey="true" />
-      <Association Name="SolicitudViatico_DetalleSolicitudViatico" Member="SolicitudViatico" ThisKey="IdSolicitud" OtherKey="IdSolicitud" Type="SolicitudViatico" IsForeignKey="true" />
-      <Association Name="TarifaAutobus_DetalleSolicitudViatico" Member="TarifaAutobus" ThisKey="CodRuta" OtherKey="CodRuta" Type="TarifaAutobus" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DetalleViatico" Member="DetalleViaticos">
-    <Type Name="DetalleViatico">
-      <Column Name="IdDetalleViatico" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdDetalleSolicitud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdCabOrden" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MontDesayuno" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MontAlmuerzo" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="MontCena" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CanDesayuno" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CanAlmuerzo" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CanCena" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CanPasaje" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="DetalleSolicitudViatico_DetalleViatico" Member="DetalleSolicitudViatico" ThisKey="IdDetalleSolicitud" OtherKey="IdDetalleSolicitud" Type="DetalleSolicitudViatico" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Estado" Member="Estados">
-    <Type Name="Estado">
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DescEstado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Estado_CabeceraLiquidacion" Member="CabeceraLiquidacions" ThisKey="IdEstado" OtherKey="IdEstado" Type="CabeceraLiquidacion" />
-      <Association Name="Estado_CabeceraOrdenViatico" Member="CabeceraOrdenViaticos" ThisKey="IdEstado" OtherKey="IdEstado" Type="CabeceraOrdenViatico" />
-      <Association Name="Estado_ModTarifarioViatico" Member="ModTarifarioViaticos" ThisKey="IdEstado" OtherKey="IdEstado" Type="ModTarifarioViatico" />
-      <Association Name="Estado_RolUsuario" Member="RolUsuarios" ThisKey="IdEstado" OtherKey="IdEstado" Type="RolUsuario" />
-      <Association Name="Estado_SolicitudViatico" Member="SolicitudViaticos" ThisKey="IdEstado" OtherKey="IdEstado" Type="SolicitudViatico" />
-      <Association Name="Estado_TarifaAutobus" Member="TarifaAutobus" ThisKey="IdEstado" OtherKey="IdEstado" Type="TarifaAutobus" />
-      <Association Name="Estado_Usuario" Member="Usuarios" ThisKey="IdEstado" OtherKey="IdEstado" Type="Usuario" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ModTarifarioViatico" Member="ModTarifarioViaticos">
-    <Type Name="ModTarifarioViatico">
-      <Column Name="IdModTarifa" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodProvincia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CodCanton" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CodRuta" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdTipoTarifa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Localidad" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="MonTarifa" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="FechaTarifa" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="AnioTarifa" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="ModTarifarioViatico_DetalleSolicitudViatico" Member="DetalleSolicitudViaticos" ThisKey="IdModTarifa" OtherKey="IdModTarifa" Type="DetalleSolicitudViatico" />
-      <Association Name="Canton_ModTarifarioViatico" Member="Canton" ThisKey="CodCanton" OtherKey="CodCanton" Type="Canton" IsForeignKey="true" />
-      <Association Name="Estado_ModTarifarioViatico" Member="Estado" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estado" IsForeignKey="true" />
-      <Association Name="Provincia_ModTarifarioViatico" Member="Provincia" ThisKey="CodProvincia" OtherKey="CodProvincia" Type="Provincia" IsForeignKey="true" />
-      <Association Name="TarifaAutobus_ModTarifarioViatico" Member="TarifaAutobus" ThisKey="CodRuta" OtherKey="CodRuta" Type="TarifaAutobus" IsForeignKey="true" />
-      <Association Name="TipoTarifa_ModTarifarioViatico" Member="TipoTarifa" ThisKey="IdTipoTarifa" OtherKey="IdTipoTarifa" Type="TipoTarifa" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Persona" Member="Personas">
-    <Type Name="Persona">
-      <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_Biaticos" Class="DB_ViaticosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-2CJA1P6\SQLEXPRESS;Initial Catalog=DB_Biaticos;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="DB_BiaticosConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_ActualizarPersona" Method="sp_ActualizarPersona">
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PrimerApellido" Parameter="primerApellido" Type="System.String" DbType="NVarChar(125)" />
+    <Parameter Name="SegundoApellido" Parameter="segundoApellido" Type="System.String" DbType="NVarChar(125)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(125)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ActualizarUsuario" Method="sp_ActualizarUsuario">
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="IdRol" Parameter="idRol" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdEstado" Parameter="idEstado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClaveAcceso" Parameter="claveAcceso" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ObtenerUsuario" Method="sp_ObtenerUsuario">
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="sp_ObtenerUsuarioResult">
       <Column Name="NomUsuario" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ClaveAcceso" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_RegistrarPersona" Method="sp_RegistrarPersona">
+    <Parameter Name="IdPersona" Parameter="idPersona" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="PrimerApellido" Parameter="primerApellido" Type="System.String" DbType="NVarChar(125)" />
+    <Parameter Name="SegundoApellido" Parameter="segundoApellido" Type="System.String" DbType="NVarChar(125)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(125)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_RegistrarUsuario" Method="sp_RegistrarUsuario">
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="IdRol" Parameter="idRol" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClaveAcceso" Parameter="claveAcceso" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ValidarCredenciales" Method="sp_ValidarCredenciales">
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="ClaveAcceso" Parameter="claveAcceso" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="sp_ValidarCredencialesResult">
+      <Column Name="NomUsuario" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ObtenerPersona" Method="sp_ObtenerPersona">
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <ElementType Name="sp_ObtenerPersonaResult">
+      <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="NVarChar(125) NOT NULL" CanBeNull="false" />
       <Column Name="PrimerApellido" Type="System.String" DbType="NVarChar(125) NOT NULL" CanBeNull="false" />
       <Column Name="SegundoApellido" Type="System.String" DbType="NVarChar(125)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(125)" CanBeNull="true" />
-      <Association Name="Persona_DetalleSolicitudViatico" Member="DetalleSolicitudViaticos" ThisKey="IdPersona" OtherKey="IdPersona" Type="DetalleSolicitudViatico" />
-      <Association Name="Usuario_Persona" Member="Usuario" ThisKey="NomUsuario" OtherKey="NomUsuario" Type="Usuario" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Provincia" Member="Provincias">
-    <Type Name="Provincia">
-      <Column Name="CodProvincia" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DescProvincia" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Association Name="Provincia_Canton" Member="Cantons" ThisKey="CodProvincia" OtherKey="CodProvincia" Type="Canton" />
-      <Association Name="Provincia_ModTarifarioViatico" Member="ModTarifarioViaticos" ThisKey="CodProvincia" OtherKey="CodProvincia" Type="ModTarifarioViatico" />
-      <Association Name="Provincia_TarifaAutobus" Member="TarifaAutobus" ThisKey="CodProvincia" OtherKey="CodProvincia" Type="TarifaAutobus" />
-    </Type>
-  </Table>
-  <Table Name="dbo.RolUsuario" Member="RolUsuarios">
-    <Type Name="RolUsuario">
-      <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DescEstado" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="RolUsuario_Usuario" Member="Usuarios" ThisKey="IdRol" OtherKey="IdRol" Type="Usuario" />
-      <Association Name="Estado_RolUsuario" Member="Estado" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estado" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SolicitudViaticos" Member="SolicitudViaticos">
-    <Type Name="SolicitudViatico">
-      <Column Name="IdSolicitud" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NomUsuario" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Destino" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="Justificacion" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FechaHoraSalida" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FechaHoraRegreso" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="SolicitudViatico_CabeceraOrdenViatico" Member="CabeceraOrdenViaticos" ThisKey="IdSolicitud" OtherKey="IdSolicitud" Type="CabeceraOrdenViatico" />
-      <Association Name="SolicitudViatico_DetalleSolicitudViatico" Member="DetalleSolicitudViaticos" ThisKey="IdSolicitud" OtherKey="IdSolicitud" Type="DetalleSolicitudViatico" />
-      <Association Name="Estado_SolicitudViatico" Member="Estado" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estado" IsForeignKey="true" />
-      <Association Name="Usuario_SolicitudViatico" Member="Usuario" ThisKey="NomUsuario" OtherKey="NomUsuario" Type="Usuario" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TarifaAutobus" Member="TarifaAutobus">
-    <Type Name="TarifaAutobus">
-      <Column Name="CodRuta" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodProvincia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TarifaReg" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DscRuta" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="FechaVigencia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="TarifaAutobus_DetalleSolicitudViatico" Member="DetalleSolicitudViaticos" ThisKey="CodRuta" OtherKey="CodRuta" Type="DetalleSolicitudViatico" />
-      <Association Name="TarifaAutobus_ModTarifarioViatico" Member="ModTarifarioViaticos" ThisKey="CodRuta" OtherKey="CodRuta" Type="ModTarifarioViatico" />
-      <Association Name="Estado_TarifaAutobus" Member="Estado" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estado" IsForeignKey="true" />
-      <Association Name="Provincia_TarifaAutobus" Member="Provincia" ThisKey="CodProvincia" OtherKey="CodProvincia" Type="Provincia" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TipoTarifa" Member="TipoTarifas">
-    <Type Name="TipoTarifa">
-      <Column Name="IdTipoTarifa" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdEspacio" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DescTipoTarifa" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Association Name="TipoTarifa_ModTarifarioViatico" Member="ModTarifarioViaticos" ThisKey="IdTipoTarifa" OtherKey="IdTipoTarifa" Type="ModTarifarioViatico" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Usuario" Member="Usuarios">
-    <Type Name="Usuario">
-      <Column Name="NomUsuario" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ClaveAcceso" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Association Name="Usuario_Persona" Member="Personas" ThisKey="NomUsuario" OtherKey="NomUsuario" Type="Persona" />
-      <Association Name="Usuario_SolicitudViatico" Member="SolicitudViaticos" ThisKey="NomUsuario" OtherKey="NomUsuario" Type="SolicitudViatico" />
-      <Association Name="Estado_Usuario" Member="Estado" ThisKey="IdEstado" OtherKey="IdEstado" Type="Estado" IsForeignKey="true" />
-      <Association Name="RolUsuario_Usuario" Member="RolUsuario" ThisKey="IdRol" OtherKey="IdRol" Type="RolUsuario" IsForeignKey="true" />
-    </Type>
-  </Table>
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ObtenerIDPersona" Method="sp_ObtenerIDPersona">
+    <Parameter Name="IdPersona" Parameter="idPersona" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ObtenerIDPersonaResult">
+      <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

@@ -11,7 +11,7 @@ namespace Control_de_viaticos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblNombreGenerado.Text=Session["usuario"].ToString();
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
