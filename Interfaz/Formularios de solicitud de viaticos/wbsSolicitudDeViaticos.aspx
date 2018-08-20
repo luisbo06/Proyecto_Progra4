@@ -32,18 +32,24 @@
             <tr>
                 <td >
                      <p align="center">
-                         <asp:Label ID="lblFechaSalida" runat="server" Text="Fecha de salida"></asp:Label>
+                         <asp:Label ID="lblFechaSalida" runat="server" Text="Fecha y hora de salida"></asp:Label>
                     </p>
                      <p  align="center">
-                         <asp:TextBox ID="txtFechaSalida" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:TextBox ID="txtFechaHoraSalida" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFechaHoraSalida" Display="Dynamic" ErrorMessage="Formato de fecha y hora de salida incorrecto" ForeColor="Red" ValidationExpression="^\d{2}\/\d{2}\/\d{4} \d{2}\:\d{2}$">Seguir el formato: ##/##/#### ##:##</asp:RegularExpressionValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaHoraSalida" Display="Dynamic" ErrorMessage="Fecha y hora de salida no debe omitirce" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </p>
+
                 </td>
+    
                  <td>
                    <p align="center">
-                         <asp:Label ID="lblFechaRegreso" runat="server" Text="Fecha de regreso"></asp:Label>
+                         <asp:Label ID="lblFechaRegreso" runat="server" Text="Fecha y hora de regreso"></asp:Label>
                     </p>
                      <p  align="center">
-                         <asp:TextBox ID="txtFechaRegreso" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:TextBox ID="txtFechaHoraRegreso" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtFechaHoraRegreso" Display="Dynamic" ErrorMessage="Formato incorrecto de fecha y hora de salida" ForeColor="Red" ValidationExpression="^\d{2}\/\d{2}\/\d{4} \d{2}\:\d{2}$">Seguir el formato: ##/##/#### ##:##</asp:RegularExpressionValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFechaHoraRegreso" Display="Dynamic" ErrorMessage="Fecha y hora de regreso no debe omitirce" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </p>
                 </td>
                 <td>
@@ -53,6 +59,8 @@
                     </p>
                      <p  align="center">
                          <asp:TextBox ID="txtFechaReciboDeViaticos" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtFechaReciboDeViaticos" Display="Dynamic" ErrorMessage="Formato incorrecto de fecha para recibir viaticos" ForeColor="Red" ValidationExpression="^\d{2}\/\d{2}\/\d{4} $">Seguir el formato: ##/##/####</asp:RegularExpressionValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtFechaReciboDeViaticos" Display="Dynamic" ErrorMessage="Fecha para recibir viaticos no debe omitirce" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </p>
                 </td>
            </tr>
@@ -63,6 +71,8 @@
                     </p>
                      <p  align="center">
                          <asp:TextBox ID="txtFechaEntradaHotel" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtFechaEntradaHotel" Display="Dynamic" ErrorMessage="Formato incorrecto de fecha de entrada al hotel" ForeColor="Red" ValidationExpression="^\d{2}\/\d{2}\/\d{4} $">Seguir el formato: ##/##/####</asp:RegularExpressionValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtFechaEntradaHotel" Display="Dynamic" ErrorMessage="Fecha de entrada al hotel no debe omitirce" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </p>
                </td>
                 <td>
@@ -71,6 +81,8 @@
                     </p>
                      <p  align="center">
                          <asp:TextBox ID="txtFechaSalidaHotel" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtFechaSalidaHotel" Display="Dynamic" ErrorMessage="Formato incorrecto de fecha de salida al hotel" ForeColor="Red" ValidationExpression="^\d{2}\/\d{2}\/\d{4} $">Seguir el formato: ##/##/####</asp:RegularExpressionValidator>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtFechaSalidaHotel" Display="Dynamic" ErrorMessage="Fecha de salida al hotel no debe omitirce" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </p>
                </td>
                
@@ -78,19 +90,15 @@
              <tr>
                 <td >
                      <p align="center">
-                          <asp:Label ID="lblHoraSalida" runat="server" Text="Hora de salida"></asp:Label>
-                    </p>
+                          &nbsp;</p>
                      <p  align="center">
-                          <asp:TextBox ID="txtHoraSalida" runat="server" CssClass="txtFormulario"></asp:TextBox>
-                    </p>
+                          &nbsp;</p>
                </td>
                 <td>
                      <p align="center">
-                          <asp:Label ID="lblHoraRegreso" runat="server" Text="Hora de regreso"></asp:Label>
-                    </p>
+                          &nbsp;</p>
                      <p  align="center">
-                          <asp:TextBox ID="txtHoraRegreso" runat="server" CssClass="txtFormulario"></asp:TextBox>
-                    </p>
+                          &nbsp;</p>
                 </td>              
            </tr>
             <tr>
@@ -170,11 +178,9 @@
                 </td>
                  <td>
                      <p align="center">
-                       <asp:Label ID="lblCantidadHospedajes" runat="server" Text="Cantidad de hospedajes"></asp:Label>
-                    </p>
+                         &nbsp;</p>
                      <p  align="center">
-                       <asp:TextBox ID="txtCantidadHospedajes" runat="server" CssClass="txtFormulario"></asp:TextBox>
-                    </p>
+                         &nbsp;</p>
                 </td>
            </tr>
             <tr>
@@ -311,19 +317,17 @@
             <tr>
                 <td >
                     <p align="center">
-                         <asp:Label ID="lblCantidadHospedajesColaborador" runat="server" Text="Cantidad de hospedajes"></asp:Label>
+                         <asp:Label ID="Label1" runat="server" Text="Cantidad de pasajes"></asp:Label>
                    </p>
                     <p  align="center">
-                         <asp:TextBox ID="txtCantidadHospedajesColaborador" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:TextBox ID="TextBox1" runat="server" CssClass="txtFormulario"></asp:TextBox>
                    </p>
                 </td>
                 <td>
                     <p align="center">
-                         <asp:Label ID="lblCantidadPasajesColaborador" runat="server" Text="Cantidad de pasajes"></asp:Label>
-                   </p>
+                         &nbsp;</p>
                     <p  align="center">
-                         <asp:TextBox ID="txtCantidadPasajesColaborador" runat="server" CssClass="txtFormulario"></asp:TextBox>
-                   </p>
+                         &nbsp;</p>
                 </td>
            </tr>
             <tr>
@@ -386,7 +390,7 @@
 
                        </p>
                         <p align="center">
-                           <asp:Button ID="btnAgregarColaborador" runat="server" Text="Agregar Colaborador" CssClass="boton" Height="35px" />
+                           <asp:Button ID="btnAgregarColaborador" runat="server" Text="Agregar Colaborador" CssClass="boton" Height="35px" OnClick="btnAgregarColaborador_Click" />
                        </p>   
                 </td>
            </tr>
@@ -395,6 +399,7 @@
                         <p align="right">
                            <asp:Button ID="btnEnviarSolicitud" runat="server" Text="Enviar solicitud" Height="35px" OnClick="btnEnviarSolicitud_Click" CssClass="boton2" />
                        </p>
+                                             <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                </td>
 
            </tr>

@@ -117,6 +117,41 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idPersona);
 			return ((ISingleResult<sp_ObtenerIDPersonaResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_CrearSolicitud")]
+		public int sp_CrearSolicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NomUsuario", DbType="NVarChar(30)")] string nomUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Destino", DbType="NVarChar(25)")] string destino, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(255)")] string justificacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCreacion", DbType="DateTime")] System.Nullable<System.DateTime> fechaCreacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHoraSalida", DbType="DateTime")] System.Nullable<System.DateTime> fechaHoraSalida, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHoraRegreso", DbType="DateTime")] System.Nullable<System.DateTime> fechaHoraRegreso)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idSolicitud, nomUsuario, destino, justificacion, fechaCreacion, fechaHoraSalida, fechaHoraRegreso);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_CrearOrden")]
+		public int sp_CrearOrden([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idOrden, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idSolicitud)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idOrden, idSolicitud);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_CrearDetalleViatico")]
+		public int sp_CrearDetalleViatico([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idDetalleViatico, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idDetalle, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idOrden, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CatidadDesayunos", DbType="Float")] System.Nullable<double> catidadDesayunos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadAlmuerzos", DbType="Float")] System.Nullable<double> cantidadAlmuerzos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadCenas", DbType="Float")] System.Nullable<double> cantidadCenas, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadPasajes", DbType="Float")] System.Nullable<double> cantidadPasajes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoDesayuno", DbType="Float")] System.Nullable<double> montoDesayuno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoAlmuerzo", DbType="Float")] System.Nullable<double> montoAlmuerzo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoCena", DbType="Float")] System.Nullable<double> montoCena)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idDetalleViatico, idDetalle, idOrden, catidadDesayunos, cantidadAlmuerzos, cantidadCenas, cantidadPasajes, montoDesayuno, montoAlmuerzo, montoCena);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_CrearDetalleSolicitud")]
+		public int sp_CrearDetalleSolicitud([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idDetalleSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idSolicitud, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idPersona, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCreacion", DbType="DateTime")] System.Nullable<System.DateTime> fechaCreacion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadPasajes", DbType="Float")] System.Nullable<double> cantidadPasajes, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadViaticos", DbType="Float")] System.Nullable<double> cantidadViaticos)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idDetalleSolicitud, idSolicitud, idPersona, fechaCreacion, cantidadPasajes, cantidadViaticos);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ConsultarID")]
+		public ISingleResult<ConsultarIDResult> ConsultarID()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ConsultarIDResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class sp_ObtenerUsuarioResult
@@ -344,6 +379,32 @@ namespace DAL
 				if ((this._IdPersona != value))
 				{
 					this._IdPersona = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ConsultarIDResult
+	{
+		
+		private int _IdSolicitud;
+		
+		public ConsultarIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSolicitud", DbType="Int NOT NULL")]
+		public int IdSolicitud
+		{
+			get
+			{
+				return this._IdSolicitud;
+			}
+			set
+			{
+				if ((this._IdSolicitud != value))
+				{
+					this._IdSolicitud = value;
 				}
 			}
 		}

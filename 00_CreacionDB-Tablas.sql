@@ -215,7 +215,7 @@ GO
 -- Creación de la tabla CabeceraOrdenViatico --
 
 CREATE TABLE [dbo].[CabeceraOrdenViatico] (
-	IdOrden int NOT NULL,
+	IdOrden int NOT NULL ,  
 	IdSolicitud int NOT NULL,
 	IdEstado int NOT NULL,
 	FechaOrden datetime
@@ -260,7 +260,7 @@ GO
 -- Creación de la tabla DetalleSolicitudViaticos --
 
 CREATE TABLE [dbo].[DetalleSolicitudViaticos] (
-	IdDetalleSolicitud int NOT NULL,
+	IdDetalleSolicitud int NOT NULL , 
 	IdSolicitud int NOT NULL,
 	IdPersona int NOT NULL,
 	IdModTarifa int,
@@ -290,7 +290,7 @@ GO
 -- Creación de la tabla DetalleViatico --
 
 CREATE TABLE [dbo].[DetalleViatico] (
-	IdDetalleViatico int NOT NULL,
+	IdDetalleViatico int NOT NULL ,  
 	IdDetalle int NOT NULL,
 	IdCabOrden int,
 	MontDesayuno float,
@@ -430,4 +430,107 @@ INSERT INTO [dbo].[RolUsuario] (IdRol,IdEstado,DescEstado) values(2,1,'Jefatura'
 go
 INSERT INTO [dbo].[TipoTarifa] (IdTipoTarifa,DescTipoTarifa) values(1,'Regular')
 go
+insert into TarifaAutobus values ('12',1,1,232,'asa',12/12/2020)
+go
+insert into ModTarifarioViatico values (1,1,1,'12',1,1,'asa',200,GETDATE(),2019)
+go
+select*from ModTarifarioViatico
+create procedure sp_CrearSolicitud
+(
+@idSolicitud int,
+@NomUsuario nvarchar(30),
+@Destino nvarchar(25),
+@justificacion nvarchar(255),
+@FechaCreacion datetime,
+@FechaHoraSalida datetime,
+@FechaHoraRegreso datetime
+
+)
+as 
+begin
+
+insert into SolicitudViaticos values (@idSolicitud,@NomUsuario,1,@Destino,@justificacion,@FechaCreacion,@FechaHoraSalida,@FechaHoraRegreso)
+
+end 
+go
+
+alter procedure sp_CrearDetalleSolicitud
+(
+@idDetalleSolicitud int,
+@idSolicitud int,
+@idPersona int,
+@FechaCreacion datetime,
+@CantidadPasajes float,
+@CantidadViaticos float
+
+
+)
+as 
+begin
+
+
+insert into  DetalleSolicitudViaticos values (@idDetalleSolicitud,@idSolicitud,@idPersona,1,'12',@CantidadViaticos,@CantidadPasajes,@FechaCreacion)
+
+end 
+go
+
+create procedure sp_CrearDetalleViatico
+(
+@idDetalleViatico int,
+@idDetalle int,
+@idOrden int,
+@CatidadDesayunos float,
+@CantidadAlmuerzos float,
+@CantidadCenas float,
+@CantidadPasajes float,
+@MontoDesayuno float,
+@MontoAlmuerzo float,
+@MontoCena float
+
+)
+as 
+begin
+
+insert into DetalleViatico values (@idDetalleViatico,@idDetalle,@idOrden,@MontoDesayuno,@MontoAlmuerzo,@MontoCena,@CatidadDesayunos,@CantidadAlmuerzos,@CantidadCenas,@CantidadPasajes)
+
+
+/*recordar generar idorden y en base al colaborador el id persona*/
+end 
+go
+
+create procedure sp_CrearOrden
+(
+@idOrden int,
+@idSolicitud int
+)
+as 
+begin
+
+
+
+insert into CabeceraOrdenViatico values(@idOrden,@idSolicitud,0,'01/01/1999')
+
+end
+go
+
+create procedure ConsultarID
+AS
+BEGIN
+     SELECT IdSolicitud FROM SolicitudViaticos WHERE IdSolicitud = (SELECT MAX(IdSolicitud) FROM SolicitudViaticos)
+END
+GO
+
+select*from SolicitudViaticos
+select*from DetalleSolicitudViaticos
+select*from DetalleViatico
+select*from CabeceraOrdenViatico
+select*from Persona
+select*from Usuario
+delete from SolicitudViaticos
+delete from DetalleSolicitudViaticos 
+delete from DetalleViatico
+delete from CabeceraOrdenViatico
+
+
+
 

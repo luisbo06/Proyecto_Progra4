@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CabeceraOrdenViatico\cls_CabeceraOrdenViaticoBLL.cs" />
+    <Compile Include="DetalleSolicitudViaticos\cls_DetalleSolicitudViaticosBLL.cs" />
+    <Compile Include="DetalleViaticos\cls_DetalleViaticoBLL.cs" />
     <Compile Include="Persona\cls_PersonaBLL.cs" />
+    <Compile Include="SolicitudViaticos\cls_SolicitudViaticosBLL.cs" />
     <Compile Include="Usuario\cls_UsuarioBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

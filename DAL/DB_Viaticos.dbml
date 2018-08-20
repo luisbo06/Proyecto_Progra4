@@ -62,4 +62,46 @@
       <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_CrearSolicitud" Method="sp_CrearSolicitud">
+    <Parameter Name="idSolicitud" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NomUsuario" Parameter="nomUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="Destino" Parameter="destino" Type="System.String" DbType="NVarChar(25)" />
+    <Parameter Name="justificacion" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="FechaHoraSalida" Parameter="fechaHoraSalida" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="FechaHoraRegreso" Parameter="fechaHoraRegreso" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CrearOrden" Method="sp_CrearOrden">
+    <Parameter Name="idOrden" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idSolicitud" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CrearDetalleViatico" Method="sp_CrearDetalleViatico">
+    <Parameter Name="idDetalleViatico" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idDetalle" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idOrden" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CatidadDesayunos" Parameter="catidadDesayunos" Type="System.Double" DbType="Float" />
+    <Parameter Name="CantidadAlmuerzos" Parameter="cantidadAlmuerzos" Type="System.Double" DbType="Float" />
+    <Parameter Name="CantidadCenas" Parameter="cantidadCenas" Type="System.Double" DbType="Float" />
+    <Parameter Name="CantidadPasajes" Parameter="cantidadPasajes" Type="System.Double" DbType="Float" />
+    <Parameter Name="MontoDesayuno" Parameter="montoDesayuno" Type="System.Double" DbType="Float" />
+    <Parameter Name="MontoAlmuerzo" Parameter="montoAlmuerzo" Type="System.Double" DbType="Float" />
+    <Parameter Name="MontoCena" Parameter="montoCena" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CrearDetalleSolicitud" Method="sp_CrearDetalleSolicitud">
+    <Parameter Name="idDetalleSolicitud" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idSolicitud" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idPersona" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaCreacion" Parameter="fechaCreacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="CantidadPasajes" Parameter="cantidadPasajes" Type="System.Double" DbType="Float" />
+    <Parameter Name="CantidadViaticos" Parameter="cantidadViaticos" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ConsultarID" Method="ConsultarID">
+    <ElementType Name="ConsultarIDResult">
+      <Column Name="IdSolicitud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

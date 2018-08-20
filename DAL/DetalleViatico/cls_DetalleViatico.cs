@@ -165,9 +165,16 @@ namespace DAL.DetalleViatico
 
             public void guardar(cls_DetalleViatico obj)
             {
-                /*
-                 * DB_Contexto.<SP>(obj.)
-                 */
+            DB_Contexto.sp_CrearDetalleViatico(obj._IdDetalleViatico,
+                                               obj._IdDetalleSolicitud,
+                                               obj._IdCabOrden,
+                                               obj._CanDesayuno,
+                                               obj._CanAlmuerzo,
+                                               obj._CanCena,
+                                               obj._CanPasaje,
+                                               obj._MontDesayuno,
+                                               obj._MontAlmuerzo,
+                                               obj._MontCena);
             }
 
         #endregion

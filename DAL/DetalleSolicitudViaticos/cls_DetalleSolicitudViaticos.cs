@@ -137,9 +137,12 @@ namespace DAL.DetalleSolicitudViaticos
 
             public void guardar(cls_DetalleSolicitudViaticos obj)
             {
-                /*
-                 * DB_Contexto.<SP>(obj.)
-                 */
+            DB_Contexto.sp_CrearDetalleSolicitud(obj._IdDetalleSolicitud,
+                                                 obj._IdSolicitud,
+                                                 obj._IdPersona,
+                                                 obj._FechaViatico,
+                                                 obj._CantPasaje,
+                                                 obj._CantViatico);
             }
 
         #endregion

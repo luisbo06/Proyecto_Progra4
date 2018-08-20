@@ -137,10 +137,32 @@ namespace DAL.SolicitudViaticos
 
             public void guardar(cls_SolicitudViaticos obj)
             {
-                /*
-                 * DB_Contexto.<SP>(obj.)
-                 */
+            DB_Contexto.sp_CrearSolicitud(obj._IdSolicitud,
+                                           obj._NomUsuario,
+                                           obj._Destino,
+                                           obj._Justificacion,
+                                           obj._FechaCreacion,
+                                           obj._FechaHoraSalida,
+                                           obj._FechaHoraRegreso);
             }
+
+        public int ConsultarID()
+        {
+            int numero = 0;
+            var ID = DB_Contexto.ConsultarID().FirstOrDefault();
+
+            if (ID != null)
+            {
+                numero = ID.IdSolicitud;
+            }
+            else
+            {
+                numero = 1;
+            }
+
+            return numero;
+        
+        }
 
         #endregion
     }

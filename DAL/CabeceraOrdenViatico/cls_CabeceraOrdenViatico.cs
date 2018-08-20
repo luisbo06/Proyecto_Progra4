@@ -77,9 +77,8 @@ namespace DAL.CabeceraOrdenViatico
 
             public void guardar(cls_CabeceraOrdenViatico obj)
             {
-                /*
-                 * DB_Contexto.<SP>(obj.)
-                 */
+            DB_Contexto.sp_CrearOrden(obj._IdOrden,
+                                      obj._IdSolicitud);
             }
 
         #endregion
