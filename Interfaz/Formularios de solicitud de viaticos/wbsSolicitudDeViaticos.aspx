@@ -114,6 +114,7 @@
                    </p>
                     <p  align="center">
                            <asp:TextBox ID="txtDestino" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                           <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDestino" ErrorMessage="Campo Requerido" ForeColor="Red">*</asp:RequiredFieldValidator>
                    </p>
                  </td>
            </tr>
@@ -124,6 +125,8 @@
                        
                     <br />
                           <asp:TextBox ID="txtJustificacion" runat="server" Height="100px" Width="455px" TextMode="MultiLine" CssClass="txtFormulario"></asp:TextBox>
+                          
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtJustificacion" ErrorMessage="Campo Requerido" ForeColor="Red">*</asp:RequiredFieldValidator>
                           
                    </p>
 
@@ -142,6 +145,8 @@
                     </p>
                     <p  align="center">
                         <asp:TextBox ID="txtCantidadDesayunos" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtCantidadDesayunos" ErrorMessage="Campo Requerido" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtCantidadDesayunos" ForeColor="Red">Máximo 5 desayunos</asp:RangeValidator>
                     </p>
 
                 </td>
@@ -151,6 +156,8 @@
                     </p>
                      <p  align="center">
                        <asp:TextBox ID="txtCantidadAlmuerzos" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtCantidadAlmuerzos" ErrorMessage="Campo requerido" ForeColor="Red">*</asp:RequiredFieldValidator>
+                         <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="txtCantidadAlmuerzos" ForeColor="Red">Máximo 5 almuerzos</asp:RangeValidator>
                     </p>
                 <td>
                      <p align="center">
@@ -158,6 +165,8 @@
                     </p>
                      <p  align="center">
                        <asp:TextBox ID="txtCantidadCenas" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtCantidadCenas" ErrorMessage="Campo Requerido" ForeColor="Red">*</asp:RequiredFieldValidator>
+                         <asp:RangeValidator ID="RangeValidator3" runat="server" ControlToValidate="txtCantidadCenas" ForeColor="Red">Máximo 4 cenas</asp:RangeValidator>
                     </p>
            </tr>
             <tr>
@@ -167,6 +176,8 @@
                     </p>
                      <p  align="center">
                        <asp:TextBox ID="txtCantidadPasajes" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtCantidadPasajes" ErrorMessage="Campo Requerido" ForeColor="Red">*</asp:RequiredFieldValidator>
+                         <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="txtCantidadPasajes" ForeColor="Red">Máximo 5 pasajes</asp:RangeValidator>
                     </p>
                 <td>
                      <p align="center">
@@ -174,6 +185,8 @@
                     </p>
                      <p  align="center">
                        <asp:TextBox ID="txtCantidadViaticos" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtCantidadViaticos" ErrorMessage="Campo Requerido" ForeColor="Red">*</asp:RequiredFieldValidator>
+                         <asp:RangeValidator ID="RangeValidator5" runat="server" ControlToValidate="txtCantidadViaticos" ForeColor="Red">Máximo 5 hospedajes</asp:RangeValidator>
                     </p>
                 </td>
                  <td>
@@ -195,6 +208,8 @@
                      </p>
                      <p  align="center">
                          <asp:TextBox ID="txtMontoDesayuno" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtMontoDesayuno" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Requerido</asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtMontoDesayuno" Display="Dynamic" ErrorMessage="Formato incorrecto" ForeColor="Red" ValidationExpression="\d{4}">Solo números</asp:RegularExpressionValidator>
                     </p>
                 </td>
                 <td>
@@ -203,6 +218,8 @@
                     </p>
                      <p  align="center">
                          <asp:TextBox ID="txtMontoAlmuerzo" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtMontoAlmuerzo" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Requerido</asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtMontoAlmuerzo" ErrorMessage="Formato Incorrecto" ForeColor="Red" ValidationExpression="\d{4}">Solo números</asp:RegularExpressionValidator>
                     </p>
                 </td>
                 <td>
@@ -211,6 +228,8 @@
                     </p>
                      <p  align="center">
                          <asp:TextBox ID="txtMontoCena" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtMontoPasajeColaborador" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Requerido</asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txtMontoCena" ErrorMessage="Formato Incorrecto" ForeColor="Red" ValidationExpression="\d{4}">Solo números</asp:RegularExpressionValidator>
                     </p>
                 </td>
            </tr>
@@ -221,6 +240,8 @@
                     </p>
                      <p  align="center">
                          <asp:TextBox ID="txtMontoPasajes" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="txtMontoPasajes" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Requerido</asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="txtMontoPasajes" ErrorMessage="Formato Incorrecto" ForeColor="Red" ValidationExpression="\d{5}">Solo números</asp:RegularExpressionValidator>
                     </p>
                 </td>
                  <td>
@@ -229,6 +250,8 @@
                     </p>
                      <p  align="center">
                          <asp:TextBox ID="txtMontoHospedajes" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtMontoHospedajes" ErrorMessage="RequiredFieldValidator" ForeColor="Red">Requerido</asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ControlToValidate="txtMontoHospedajes" ErrorMessage="Formato Incorrecto" ForeColor="Red" ValidationExpression="\d{6}">Solo números</asp:RegularExpressionValidator>
                     </p>
                 </td>               
            </tr>
